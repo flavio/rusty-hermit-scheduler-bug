@@ -1,0 +1,14 @@
+[package]
+name = "redis_test"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0"
+
+getopts = "0.2"
+r2d2 = "0.8"
+redis = { version = "0.22.3", features = ["r2d2"] }
+
+[target.'cfg(target_os = "hermit")'.dependencies]
+hermit-sys = { version = "0.4", features = ["smp", "pci", "fsgsbase", "tcp", "dhcpv4"] }
